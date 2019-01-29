@@ -1,0 +1,64 @@
+<!---{% extends 'rfvisapp/base_generic.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<p>Welcome, {{ user.get_username }}.
+
+<a href="{% url 'logout' %}">Log Out</a>
+
+{% else %}
+
+<a href="{% url 'login' %}">Log In</a>
+
+{% endif %}
+-->
+<p>
+
+<h2>Messages</h2>
+
+
+
+{% if messages_list %}  <!--check if list is full or empty -->
+
+<ul>
+
+
+
+  {% for message in messages_list %}
+
+      <li><a href="./{{message.Sensor}}">{{message.LOB}}</a> {{message.LAT}}</li>
+
+  {% endfor %}
+
+
+
+</ul>
+
+{% else %}
+
+<p>No messages in database! {{messages_list}}</p>
+
+{% endif %}
+
+<!----
+{% for device in devices %}
+  Device: {{ device.device_name }}
+  image = <img src='{% static device.image.model_pic.url %}'>
+{% endfor %}
+
+
+{% if user.is_authenticated and perms.user.add_signal %}
+
+<a href="addsensor">Add sensor to database</a>
+
+{% endif %}
+--->
+</p>
+
+
+<!--
+{% endblock %}
+-->
